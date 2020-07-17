@@ -5,7 +5,7 @@
     $query = "select * from productos inner join marca 
     on productos.idMarca=marca.id_marca join zonas 
     on productos.id_zona = zonas.id_zona JOIN proveedor 
-    on productos.id_proveerdor=proveedor.id_proveedor";
+    on productos.id_proveerdor=proveedor.id_proveedor order by id_producto";
     $result = mysqli_query($connection, $query);
 
     if (!$result) {

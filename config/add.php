@@ -13,15 +13,17 @@
         echo($codigo.$descripcionP);
 
         $query = "insert into productos (idMarca,id_proveerdor,id_zona,codigo,descripcion_producto,precio) values ('$marca','$proveedor','$zona','$codigo','$descripcionP','$precio')";
+
+        //echo($query);
         
-        $result = mysqli_query($connection, $query);
+         $result = mysqli_query($connection, $query);
 
         if (!$result) {
             die('Query Failed.');
           }
         
           echo "Task Added Successfully";
-
+ 
 
     }
 ?>

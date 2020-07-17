@@ -69,15 +69,14 @@ let edit = false;
       codigo : $('#id-codigo').val(),
       descripcionP : $('#id-descripcion').val(),
       precio : $('#id-precio').val(),
+      id  : $('#id_update').val(),
     }
 
     let url = edit === false ? '../config/add.php' : '../config/update.php';
-    console.log(url);
-
-
+    //console.log(url);
     //console.log(postDate);
     $.post(url,postDate,(response)=>{
-      //console.log(response);
+      console.log(response);
     });
 
     fetchdatapq();
@@ -138,22 +137,40 @@ let edit = false;
         }
       });
 
+
+
       $(document).on('click', '.pro-update', (e) => {
         //alert('update');
-        
-        
           const element = $(this)[0].activeElement.parentElement.parentElement;
           const id = $(element).attr('prodID');
           $.post('../config/single.php', {id}, (response) => {
-
             const updateDT = JSON.parse(response);
+            
+            updateDT.forEach(cons =>{                
+              ax=cons.id_proveerdor;
+              ay=cons.idMarca;
+              az=cons.id_zona;
+
+            });            
+
+            alert(updateDT[2])
            
-            $('#id-marca').val(updateDT[0].idMarca);
-            $('#id-proveedor').val(updateDT[0].id_proveerdor);
-            $('#id-zona').val(updateDT[0].id_zona);
+            $('#id-marca').val(ay);
+            $('#id-proveedor').val(ax);
+            $('#id-zona').val(az);
             $('#id-codigo').val(updateDT[0].codigo);
             $('#id-descripcion').val(updateDT[0].descripcion_producto);
             $('#id-precio').val(updateDT[0].precio);
+            $('#id_update').val(updateDT[0].id_producto);
+
+            /* console.log("sdfsdfsdfasdf  "+ updateDT[0].idMarca); */
+
+            
+
+            
+
+
+            console.log('qwre'+ ax) ;
 
             edit = true;
 

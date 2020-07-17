@@ -20,6 +20,7 @@ include '../inc/nav.php';
 
 
         <form action="">
+        <input type="hidden" id="id_update">
         <div class="formProducto form-group card "style="width: 18rem;">
             <div class="card-header">
                 nuevo producto
