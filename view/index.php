@@ -1,4 +1,16 @@
 <?php
+
+    session_start();
+
+    if (!isset($_SESSION['usuario'])) {
+        echo("user".$_SESSION['usuario']);
+        echo "loggd aout";
+        echo header('location:../index.php');
+    }
+
+?>
+
+<?php
 //include('../utils/conexionBD.php');
 include '../inc/head.php';
 ?>
