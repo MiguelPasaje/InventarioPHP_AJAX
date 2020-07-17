@@ -13,5 +13,6 @@
 
     <input class="form-control mr-sm-2" id="txt_search" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" id="btn_search" type="submit">Search</button>
+    <a class="nav-link h3" href="#">Login</a>
   </form>
 </nav>

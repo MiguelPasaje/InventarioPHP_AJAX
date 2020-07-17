@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 console.log('jqery funciona');
+let edit = false;
 
   fetchdatapq();
 
@@ -60,21 +61,30 @@ console.log('jqery funciona');
   });
 
   $('#btn_add').click(()=>{
+    console.log('btn_add');
     const postDate = {
       marca  : $('#id-marca').val(),
       proveedor    : $('#id-proveedor').val(),
       zona : $('#id-zona').val(),
       codigo : $('#id-codigo').val(),
-      descripcionP : $('#id-descripcionP').val(),
+      descripcionP : $('#id-descripcion').val(),
       precio : $('#id-precio').val(),
     }
+
+    let url = edit === false ? '../config/add.php' : '../config/update.php';
+    console.log(url);
+
+
     //console.log(postDate);
-    $.post('../config/add.php',postDate,(response)=>{
-      console.log(response);
+    $.post(url,postDate,(response)=>{
+      //console.log(response);
     });
+
+    fetchdatapq();
 
 
   });
+
 
 
     function fetchdatapq(){
@@ -144,6 +154,8 @@ console.log('jqery funciona');
             $('#id-codigo').val(updateDT[0].codigo);
             $('#id-descripcion').val(updateDT[0].descripcion_producto);
             $('#id-precio').val(updateDT[0].precio);
+
+            edit = true;
 
             fetchdatapq();
             console.log(response);

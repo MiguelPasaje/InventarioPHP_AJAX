@@ -1,5 +1,5 @@
 <?php
-//echo('add.php')
+//echo('add.php');
     include('../utils/conexionBD.php');
 
     if(isset($_POST['marca'])){
@@ -10,9 +10,10 @@
         $codigo = $_POST['codigo'];
         $descripcionP = $_POST['descripcionP'];
         $precio = $_POST['precio'];
+        echo($codigo.$descripcionP);
 
-        $query = "insert into productos (marca,descripcion) values ('$marca','$proveedor','$zona','$codigo','$descripcionP','$precio')";
-
+        $query = "insert into productos (idMarca,id_proveerdor,id_zona,codigo,descripcion_producto,precio) values ('$marca','$proveedor','$zona','$codigo','$descripcionP','$precio')";
+        
         $result = mysqli_query($connection, $query);
 
         if (!$result) {

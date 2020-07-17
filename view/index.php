@@ -1,4 +1,5 @@
 <?php
+//include('../utils/conexionBD.php');
 include '../inc/head.php';
 ?>
 <body>
@@ -24,9 +25,72 @@ include '../inc/nav.php';
                 nuevo producto
             </div>
                 <div class="col-md-12 my-4 h3">
-                    <input type="text" id="id-marca" class="form-control" placeholder="Marca">
-                    <input type="text" id="id-proveedor" class="form-control" placeholder="proveedor">
-                    <input type="text" id="id-zona" class="form-control" placeholder="Zona">
+                    <!-- <input type="text" id="id-marca" class="form-control" placeholder="Marca"> -->
+                    
+                    <select class="form-control" id="option_marca">
+                        <option class="form-control" value="">Sleccione Marca</option>                        
+                            <?php        
+                                include('../utils/conexionBD.php');
+                                $query = "select * from marca order by id_marca";
+                                $result = mysqli_query($connection, $query);
+
+                                if (!$result) {
+                                    die('query pq-list failed'.mysqli_error($connection));
+                                }
+
+                                while ($row_m = mysqli_fetch_array($result)) {
+                                    $id_m=$row_m['id_marca'];
+                                    $marca=$row_m['nombre_marca'];
+                                ?>
+                                <option id="id-marca" class="form-control" value="<?php echo $id_m;?>"><?php echo $marca; ?></option>
+                                <?php
+                                }
+                            ?>
+                        
+                    </select>
+
+                    <select class="form-control" id="option_marca">
+                        <option class="form-control" value="">Sleccione Proveedor</option>                        
+                            <?php        
+                                include('../utils/conexionBD.php');
+                                $query = "select * from proveedor order by id_proveedor";
+                                $result = mysqli_query($connection, $query);
+
+                                if (!$result) {
+                                    die('query pq-list failed'.mysqli_error($connection));
+                                }
+
+                                while ($row_m = mysqli_fetch_array($result)) {
+                                    $id_m=$row_m['id_proveedor'];
+                                    $marca=$row_m['descripcion_proveedor'];
+                                ?>
+                                <option id="id-proveedor" class="form-control" value="<?php echo $id_m;?>"><?php echo $marca; ?></option>
+                                <?php
+                                }
+                            ?>
+                        
+                    </select>
+                    <select class="form-control" id="option_marca">
+                        <option class="form-control" value="">Sleccione Zona</option>                        
+                            <?php        
+                                include('../utils/conexionBD.php');
+                                $query = "select * from zonas order by id_zona";
+                                $result = mysqli_query($connection, $query);
+
+                                if (!$result) {
+                                    die('query pq-list failed'.mysqli_error($connection));
+                                }
+
+                                while ($row_m = mysqli_fetch_array($result)) {
+                                    $id_m=$row_m['id_zona'];
+                                    $marca=$row_m['descripcion_zona'];
+                                ?>
+                                <option id="id-zona" class="form-control" value="<?php echo $id_m;?>"><?php echo $marca; ?></option>
+                                <?php
+                                }
+                            ?>
+                        
+                    </select>                    
                     <input type="text" id="id-codigo" class="form-control" placeholder="Codigo">
                     <input type="text" id="id-descripcion" class="form-control" placeholder="Descripción">
                     <input type="text" id="id-precio" class="form-control" placeholder="Precio">
