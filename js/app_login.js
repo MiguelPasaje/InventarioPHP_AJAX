@@ -1,4 +1,4 @@
-alert('hola');
+//alert('hola');
 $(document).ready(function(){
     $('#ADDuser').hide();
     $('#LOGuser').hide();

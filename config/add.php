@@ -10,7 +10,7 @@
         $codigo = $_POST['codigo'];
         $descripcionP = $_POST['descripcionP'];
         $precio = $_POST['precio'];
-        echo($codigo.$descripcionP);
+        //echo($codigo.$descripcionP);
 
         $query = "insert into productos (idMarca,id_proveerdor,id_zona,codigo,descripcion_producto,precio) values ('$marca','$proveedor','$zona','$codigo','$descripcionP','$precio')";
 

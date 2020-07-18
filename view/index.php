@@ -25,18 +25,26 @@ include '../inc/nav.php';
     <div class='container'>
 
         <div class="my-5">
-            <button class="btn btn-primary ">
+            <button id="btn_newP" class="btn btn-primary ">
             Nuevo Producto
             </button>            
         </div>
 
-
-        <form action="">
+<div id="fomr_newP">
+        <form id="formP" action="">
         <input type="hidden" id="id_update">
         <div class="formProducto form-group card "style="width: 18rem;">
-            <div class="card-header">
-                nuevo producto
+            <div id="newPro" class="card-header h3 text-primary bg-secondary">
+                Nuevo producto 
+                 <a  id="btn_cerrar" href="#" class=" btn h2 text-dark bg-danger float-right" >&nbspX&nbsp</a>
             </div>
+            <div id="updatePro" class=" card-header h3 text-warning bg-secondary">
+                Update Producto
+                 <a  id="btn_cerrar2" href="#" class=" btn h2 text-dark bg-danger float-right" >&nbspX&nbsp</a>
+            </div>
+
+
+
                 <div class="col-md-12 my-4 h3">
                     <!-- <input type="text" id="id-marca" class="form-control" placeholder="Marca"> -->
                     
@@ -112,6 +120,7 @@ include '../inc/nav.php';
                 </div>
         </div>
         </form>
+</div>
 
 
         <div> 

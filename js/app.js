@@ -1,7 +1,12 @@
 $(document).ready(function(){
 
 console.log('jqery funciona');
+
 let edit = false;
+$('#fomr_newP').hide();
+$('#newPro').hide();
+$('#updatePro').hide();
+
 
   fetchdatapq();
 
@@ -10,6 +15,7 @@ let edit = false;
     //console.log(search);
     if($('#txt_search').val()) {      
       $('#listarProductos').hide();
+      $('#fomr_newP').hide();
       let txt_search = $('#txt_search').val();
       //alert(txt_search);
       $.ajax({
@@ -76,10 +82,12 @@ let edit = false;
     //console.log(url);
     //console.log(postDate);
     $.post(url,postDate,(response)=>{
-      console.log(response);
+      alert(response);
     });
-
+    $('#formP').trigger('reset');
+    //$('#fomr_newP').hide();
     fetchdatapq();
+
 
 
   });
@@ -141,6 +149,10 @@ let edit = false;
 
       $(document).on('click', '.pro-update', (e) => {
         //alert('update');
+          $('#updatePro').show();
+          $('#newPro').hide();
+          $('#fomr_newP').show();
+
           const element = $(this)[0].activeElement.parentElement.parentElement;
           const id = $(element).attr('prodID');
           $.post('../config/single.php', {id}, (response) => {
@@ -153,7 +165,7 @@ let edit = false;
 
             });            
 
-            alert(updateDT[2])
+            
            
             $('#id-marca').val(ay);
             $('#id-proveedor').val(ax);
@@ -170,16 +182,34 @@ let edit = false;
             
 
 
-            console.log('qwre'+ ax) ;
+            //console.log('qwre'+ ax) ;
 
             edit = true;
 
-            fetchdatapq();
+            
             console.log(response);
+            fetchdatapq();
           });
         
       });
 
+      $('#btn_newP').click(()=>{
+        $('#fomr_newP').show();
+        $('#newPro').show();
+        $('#updatePro').hide();
+
+
+      });
+
+      $('#btn_cerrar').click(()=>{
+        $('#fomr_newP').hide();
+        $('#formP').trigger('reset');
+      });
+
+      $('#btn_cerrar2').click(()=>{
+        $('#fomr_newP').hide();
+        $('#formP').trigger('reset');
+      });
       
 
       
