@@ -70,7 +70,7 @@ include '../inc/nav.php';
                         
                     </select>
 
-                    <select class="form-control" id="option_marca">
+                    <select class="form-control" id="option_prov">
                         <option class="form-control" value="">Sleccione Proveedor</option>                        
                             <?php        
                                 include('../utils/conexionBD.php');
@@ -91,7 +91,7 @@ include '../inc/nav.php';
                             ?>
                         
                     </select>
-                    <select class="form-control" id="option_marca">
+                    <select class="form-control" id="option_zona">
                         <option class="form-control" value="">Sleccione Zona</option>                        
                             <?php        
                                 include('../utils/conexionBD.php');

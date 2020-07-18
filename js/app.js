@@ -29,7 +29,7 @@ $('#updatePro').hide();
             let tasks = JSON.parse(response);
             //console.log(tasks)
             let template = '';
-            var  i = 1;
+            //var  i = 1;
             tasks.forEach( function (task)  {
               template += `
                     <tr>                 
@@ -157,19 +157,21 @@ $('#updatePro').hide();
           const id = $(element).attr('prodID');
           $.post('../config/single.php', {id}, (response) => {
             const updateDT = JSON.parse(response);
-            
-            updateDT.forEach(cons =>{                
+            //alert(updateDT);
+            /* updateDT.forEach(cons =>{                
               ax=cons.id_proveerdor;
               ay=cons.idMarca;
               az=cons.id_zona;
 
-            });            
+            });  */           
 
             
            
-            $('#id-marca').val(ay);
-            $('#id-proveedor').val(ax);
-            $('#id-zona').val(az);
+            $('#option_marca').val(updateDT[0].idMarca);
+            $('#option_prov').val(updateDT[0].id_proveerdor);
+            $('#option_zona').val(updateDT[0].id_zona);
+            //$('#id-proveedor').val(ax);
+            //$('#id-zona').val(az);
             $('#id-codigo').val(updateDT[0].codigo);
             $('#id-descripcion').val(updateDT[0].descripcion_producto);
             $('#id-precio').val(updateDT[0].precio);

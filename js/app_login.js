@@ -85,8 +85,8 @@ $(document).ready(function(){
         if (user && pwd) {       
 
             $.post('./config/userLogin.php',postDate,(response)=>{
-                alert(response);
-                console.log(response);
+                //alert("bienvenido");
+                //console.log("Bienvenido");
                                
                 
                 if (response == 1) {
